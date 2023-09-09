@@ -60,7 +60,8 @@ function startGame() {
     addClass(resultTab, "hidden");
     removeClass(resultTab, "blur");
   }
-  if (typingTab.classList.contains("hidden")) removeClass(typingTab, "hidden");
+  if (typingTab.classList.contains("hide-opacity"))
+    removeClass(typingTab, "hide-opacity");
   addClass(document.querySelector(".word"), "current");
   addClass(document.querySelector(".letter"), "current");
 
@@ -68,7 +69,8 @@ function startGame() {
   cursor.style.top = 2.8 + "rem";
   cursor.style.left = 3 + "px";
 
-  if (!timer.classList.contains("hide-timer")) addClass(timer, "hide-timer");
+  if (!timer.classList.contains("hide-opacity"))
+    addClass(timer, "hide-opacity");
 }
 
 function gameOver() {
@@ -79,7 +81,8 @@ function gameOver() {
     removeClass(resultTab, "hidden");
     addClass(resultTab, "blur");
   }
-  if (!typingTab.classList.contains("hidden")) addClass(typingTab, "hidden");
+  if (!typingTab.classList.contains("hide-opacity"))
+    addClass(typingTab, "hide-opacity");
 
   reset();
 }
@@ -286,8 +289,8 @@ window.addEventListener("keydown", (ev) => {
         return;
       }
       timer.textContent = sLeft + "";
-      if (timer.classList.contains("hide-timer")) {
-        removeClass(timer, "hide-timer");
+      if (timer.classList.contains("hide-opacity")) {
+        removeClass(timer, "hide-opacity");
       }
     };
     window.timer(); // para di delay start ng timer
@@ -305,8 +308,8 @@ window.addEventListener("keydown", (ev) => {
         return;
       }
       timer.textContent = sLeft + "";
-      if (timer.classList.contains("hidde-timer")) {
-        removeClass(timer, "hide-timer");
+      if (timer.classList.contains("hide-opacity")) {
+        removeClass(timer, "hide-opacity");
       }
     }, 1000);
   }
