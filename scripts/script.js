@@ -183,6 +183,10 @@ function getLocalStorage() {
     if (activeModes.includes(mode)) addClass(element, "active");
   });
 
+  const activeTheme = localStorage.getItem("theme");
+  if (JSON.parse(activeTheme) === "dark") addClass(body, "dark-mode");
+
+  if (!localStorage.getItem("time")) return;
   const activeTime = localStorage.getItem("time");
   timeconfig.forEach((element) => {
     const time = element.getAttribute("data-time");
@@ -190,9 +194,6 @@ function getLocalStorage() {
       if (!element.classList.contains("active")) addClass(element, "active");
     } else removeClass(element, "active");
   });
-
-  const activeTheme = localStorage.getItem("theme");
-  if (JSON.parse(activeTheme) === "dark") addClass(body, "dark-mode");
 }
 
 function setupToggleClickEvent(element) {
